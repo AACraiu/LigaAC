@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get 'alta_ruta', to: 'application#alta_ruta'
 
+  get 'users', to: 'users#index'
+  get 'users/:id', to: 'users#show'
 end
