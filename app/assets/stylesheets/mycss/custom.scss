@@ -1,0 +1,22 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+h1 {
+  text-align: center;
+}
+
+nav {
+  background-color: deepskyblue;
+  padding: 12px;
+  
+  .navlink {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.user-card {
+  width: 400px;
+  margin-bottom: 10px;
+}

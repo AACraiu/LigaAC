@@ -2,17 +2,15 @@
 
 <ul>
     <% @users.each do |user| %>
-        <li style="border-bottom: 1px solid black">
-            name: <%= user.name %><br>
-            email: <%= user.email %><br>
-            age: <%= user.age %><br>
-            gender: <%= user.gender %>
+        <li>
+            <%= render user %>
         </li>
     <% end %>
 </ul>
 
 <%
 =begin%>
+  <%= render partial: 'user', locals: { user: user } %>
   <%  %> - doar ruleaza cod de ruby
   <%= %> - afiseaza codul de ruby
 <%

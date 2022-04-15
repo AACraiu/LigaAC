@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get 'alta_ruta', to: 'application#alta_ruta'
 
   get 'users', to: 'users#index'
+  get 'users/new', to: 'users#new'
   get 'users/:id', to: 'users#show'
+  post 'users', to: 'users#create'
 end
