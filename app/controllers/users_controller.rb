@@ -14,13 +14,18 @@ class UsersController < ApplicationController
     end
     
     def create
-      user = User.new(name: params['user']['name'])
+      @user = User.new(user_params)
 
-      if user.save
-        redirect_to "/users/#{user.id}"
+      if @user.save
+        redirect_to user_path(@user)
       else
-        flash[:error] = 'Validations failed'
-        redirect_to '/users/new'
+        render 'users/new'
       end
+    end
+    
+    private
+    
+    def user_params
+      params.require(:user).permit(:name, :email, :password)
     end
 end
