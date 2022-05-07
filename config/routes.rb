@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   root 'application#hello_world'
 
   resources :users
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  # TODO: fix this!
+  get 'logout', to: 'sessions#destroy'
 end

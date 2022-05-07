@@ -32,4 +32,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     user = User.last
     assert_equal user.name, 'George'
   end
+
+  test 'users index' do
+    user = User.create!(email: 'user@example.com', password: '123123', name: 'Ceva')
+    post login_path, params: { email: user.email, password: user.password }
+    assert_response :redirect
+    get users_path
+    assert_response :success
+  end
 end

@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
 
-    def hello_world
-        render html: "Hello, world"
+  def hello_world
+    if logged_in?
+      redirect_to users_path
+    else
+      redirect_to login_path
     end
-
-    def alta_ruta
-        # render html: "Alta ruta"
-    end
+  end
 end
