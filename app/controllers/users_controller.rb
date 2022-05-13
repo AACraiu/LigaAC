@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :check_user, only: [ :index, :show ]
+  before_action :check_user, only: [ :index, :show, :destroy ]
+  before_action :admin_user, only: [ :destroy ]
 
   def index
     @users = User.all
@@ -23,6 +24,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to '/users'
+  end
+
   private
 
   def user_params
@@ -30,8 +37,10 @@ class UsersController < ApplicationController
   end
 
   def check_user
-    if !logged_in?
-      redirect_to login_path
-    end
+    redirect_to login_path unless logged_in?
+  end
+  
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end

@@ -6,5 +6,9 @@
       age: <%= user.age %><br>
       gender: <%= user.gender %>
     </p>
+    <%# TO DO make sure confirmation message works %>
+    <% if current_user.admin? && !current_user?(user) %>
+      <%= button_to 'delete', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </div>
 </div>
