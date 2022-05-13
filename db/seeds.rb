@@ -9,6 +9,7 @@
 User.create(
     name: "John",
     email: "asdasd@adsa.com",
+    password: 'password',
     age: 22,
     gender: "Male"
 )
@@ -16,6 +17,7 @@ User.create(
 User.create(
     name: "Alexandra",
     email: "alexandra@adsa.com",
+    password: 'password',
     age: 25,
     gender: "Female"
 )
@@ -23,6 +25,7 @@ User.create(
 User.create(
     name: "Mike",
     email: "Mike@adsa.com",
+    password: 'password',
     age: 18,
     gender: "Male"
 )
@@ -30,6 +33,7 @@ User.create(
 User.create(
     name: "Ioana",
     email: "Ioana@adsa.com",
+    password: 'password',
     age: 19,
     gender: "Female"
 )
@@ -37,6 +41,7 @@ User.create(
 User.create!(
     name: "Andrei",
     email: "Andrei@adsa.com",
+    password: 'password',
     age: 17,
     gender: "Other"
 )
