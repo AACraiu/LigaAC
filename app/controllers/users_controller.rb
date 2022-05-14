@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.where(id: params[:id]).first
+    @posts = @user.posts.paginate(page: params[:page], per_page: 5)
   end
 
   def new

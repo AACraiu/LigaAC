@@ -2,8 +2,21 @@
   <%= link_to('Back to users', '/users') %>
 </div>
 
-<% if @user.nil? %>
-    Nu exista userul cerut.
-<% else %>
-    <%= render @user %>
-<% end %>
+
+<div class="row">
+  <div class="col-md-4">
+    <% if @user.nil? %>
+        Nu exista userul cerut.
+    <% else %>
+        <%= render @user %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <H3> Posts (<%= @posts.count%>)</h3>
+    <%= render @posts %>
+    <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: "pagination bg-transparent") %>
+  </div>
+</div>
+
+
+
