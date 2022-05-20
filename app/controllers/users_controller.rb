@@ -8,7 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.where(id: params[:id]).first
-    @posts = @user.posts.paginate(page: params[:page], per_page: 5)
+    if @user.present?
+      @posts = @user.posts.paginate(page: params[:page], per_page: 5)
+      @post = Post.new
+    end
   end
 
   def new
@@ -35,13 +38,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password)
-  end
-
-  def check_user
-    redirect_to login_path unless logged_in?
-  end
-  
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
   end
 end
