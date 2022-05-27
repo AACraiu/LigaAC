@@ -10,6 +10,12 @@ mike:
   age: 18
   gender: other
   admin: true
+andrei:
+  name: andrei
+  email: andrei@gmail.com
+  age: 18
+  gender: other
+  admin: true
 # column: value
 #
 two: {}

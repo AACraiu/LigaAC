@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   root 'application#hello_world'
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :posts
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
